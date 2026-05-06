@@ -1,0 +1,24 @@
+install.packages("tidyverse")
+install.packages("readxl")
+install.packages(c("ggplot2", "dplyr"))
+
+library(ggplot2)
+library(tidyverse)
+library(readxl)
+
+kell_Imp <- read_excel("C:/Users/aatwrigh/Downloads/Kelloggs Lancaster PA.xlsx")
+kell_Imp
+
+kell_Imp2 <- read_excel("C:/Users/aatwrigh/OneDrive - Hyster-Yale Group/Desktop/R for HY/KelloggsLancasterPA2.xlsx")
+kell_Imp2
+
+kell_Imp2$`Serial Number` <- as.factor(kell_Imp2$`Serial Number`)
+
+kell_Imp2
+
+boxplot(`Horizontal Magnitude\r\n(Impact Level)` ~ `Serial Number`, data = kell_Imp2, col = 'lightblue')
+
+kell_Imp2$`Asset ID` <- as.factor(kell_Imp2$`Asset ID`)
+
+boxplot(`Horizontal Magnitude\r\n(Impact Level)` ~ `Asset ID`, data = kell_Imp2, col = c('black', 'orange', 'skyblue',
+                                                                                         'yellow', 'blue'))
